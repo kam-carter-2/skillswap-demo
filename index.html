@@ -5,14 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Swap | Share What You Know</title>
-    <!-- AI-assisted setup: connects the stylesheet to this page. -->
     <link rel="stylesheet" href="styles.css">
-    <!-- AI-assisted setup: loads JavaScript after the HTML is parsed. -->
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Homepage structure will be added on the first feature branch. -->
-    <h1>Skill Swap</h1>
-    <p>Learn something new. Share something you know.</p>
+    <!-- AI-assisted code: semantic structure and accessible navigation. -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="#home">Skill Swap</a>
+
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skill-offerings">Browse Skills</a></li>
+                    <li><a href="#offer-skills">Offer Skills</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero">
+            <div class="container">
+                <p class="eyebrow">LEARN • TEACH • CONNECT</p>
+                <h1>Exchange Skills.<br>Grow Together.</h1>
+                <p class="hero-description">
+                    Learn something new from your community and share the
+                    knowledge you already have.
+                </p>
+                <a class="button" href="#skill-offerings">Explore Skills</a>
+            </div>
+        </section>
+
+        <section class="section container" id="skill-offerings">
+            <p class="eyebrow">FIND YOUR NEXT SKILL</p>
+            <h2>Discover what you can learn</h2>
+            <p>Explore community skills and find your next learning opportunity.</p>
+            <!-- Skill cards will be implemented in Feature Branch 3. -->
+        </section>
+
+        <section class="section offer-section" id="offer-skills">
+            <div class="container">
+                <h2>Have a skill to share?</h2>
+                <p>Help someone learn something new by sharing your knowledge.</p>
+            </div>
+        </section>
+
+        <section class="section container" id="about">
+            <h2>About Skill Swap</h2>
+            <p>
+                Skill Swap brings people together to exchange knowledge,
+                develop skills, and learn from one another.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Skill Swap. Learn together, grow together.</p>
+        </div>
+    </footer>
 </body>
 </html>
