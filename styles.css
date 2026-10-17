@@ -1,0 +1,12 @@
+
+/* AI-assisted starter styling for the Skill Swap homepage. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #243047;
+    background-color: #f5f7fb;
+}
