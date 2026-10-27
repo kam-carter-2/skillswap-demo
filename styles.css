@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     font-family: Arial, Helvetica, sans-serif;
     color: #202b40;
@@ -12,104 +16,123 @@
 body {
     margin: 0;
     min-height: 100vh;
-}
-
-.site-header {
-    min-height: 76px;
-    padding: 0 8%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    background: #ffffff;
-    border-bottom: 1px solid #e9ecf3;
-}
-
-.logo {
-    color: #202b40;
-    font-size: 1.45rem;
-    font-weight: 800;
-    text-decoration: none;
-    letter-spacing: -0.7px;
-}
-
-.logo span,
-.hero h1 span {
-    color: #6558d9;
-}
-
-.header-tagline {
-    color: #707b90;
-    font-size: 0.9rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #243047;
+    background: #f7f8fc;
 }
 
 .container {
-    width: min(1100px, 88%);
+    width: min(1100px, 90%);
     margin: 0 auto;
 }
 
+.site-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e6e9f0;
+}
+
+.header-content {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    color: #5546d7;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #38445a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: #5546d7;
+}
+
 .hero {
-    padding: 76px 0 60px;
+    padding: 85px 0;
+    color: #ffffff;
+    background: linear-gradient(120deg, #4338ca, #7c3aed);
 }
 
 .eyebrow {
     margin: 0 0 14px;
-    color: #6558d9;
-    font-size: 0.75rem;
+    color: #7867e8;
+    font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 1.6px;
+    letter-spacing: 0.12em;
+}
+
+.hero .eyebrow {
+    color: #e0dcff;
 }
 
 .hero h1 {
-    margin: 0;
-    font-size: clamp(2.35rem, 5vw, 4rem);
-    line-height: 1.12;
-    letter-spacing: -2px;
+    max-width: 700px;
+    margin: 12px 0;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
 }
 
 .hero-description {
-    max-width: 540px;
-    margin-top: 22px;
-    color: #68748a;
-    font-size: 1.08rem;
-    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 32px;
+    font-size: 1.1rem;
 }
 
-.skills-section {
-    padding: 34px;
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    color: #4338ca;
     background: #ffffff;
-    border: 1px solid #e9ecf3;
-    border-radius: 20px;
-    box-shadow: 0 12px 35px rgba(35, 45, 75, 0.04);
-}
-
-.section-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.section-heading .eyebrow {
-    margin-bottom: 8px;
-}
-
-.section-heading h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    letter-spacing: -0.8px;
-}
-
-.skill-count {
-    padding: 8px 12px;
-    color: #6558d9;
-    background: #f0efff;
-    border-radius: 20px;
-    font-size: 0.85rem;
     font-weight: 700;
-    white-space: nowrap;
+    text-decoration: none;
 }
 
+.button:hover {
+    background: #eeeaff;
+}
+
+.section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.offer-section {
+    background: #eeecff;
+}
+
+.site-footer {
+    padding: 24px 0;
+    color: #ffffff;
+    background: #20283b;
+}
+
+/* Skill category filters */
 .filter-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -127,7 +150,6 @@ body {
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .filter-button:hover {
@@ -146,23 +168,32 @@ body {
     outline-offset: 3px;
 }
 
+#skill-count {
+    color: #6558d9;
+    font-weight: 700;
+}
+
+/* Skill cards */
+.skill-grid,
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 24px;
+    margin-top: 32px;
 }
 
 .skill-card {
     min-width: 0;
-    padding: 22px;
-    border: 1px solid #e7eaf2;
-    border-radius: 15px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e3e6f0;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(36, 48, 71, 0.06);
 }
 
-.skill-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(35, 45, 75, 0.07);
+.skill-card h3 {
+    margin-top: 0;
+    color: #4338ca;
 }
 
 .skill-icon {
@@ -185,11 +216,6 @@ body {
     letter-spacing: 1px;
 }
 
-.skill-card h3 {
-    margin: 0;
-    font-size: 1.2rem;
-}
-
 .skill-description {
     min-height: 48px;
     color: #68748a;
@@ -209,84 +235,12 @@ body {
 
 .skill-price {
     color: #202b40;
-    font-size: 1.05rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .skill-type {
     color: #788398;
     font-size: 0.8rem;
-}
-
-.empty-message {
-    padding: 30px 0;
-    color: #68748a;
-    text-align: center;
-}
-
-footer {
-    padding: 35px 0;
-    color: #7c8799;
-    font-size: 0.85rem;
-    text-align: center;
-}
-
-@media (max-width: 650px) {
-    .site-header {
-        padding: 0 6%;
-    }
-
-    .header-tagline {
-        max-width: 135px;
-        font-size: 0.8rem;
-        text-align: right;
-    }
-
-    .container {
-        width: 90%;
-    }
-
-    .hero {
-        padding: 52px 0 38px;
-    }
-
-    .hero h1 {
-        letter-spacing: -1.3px;
-    }
-
-    .skills-section {
-        padding: 22px 17px;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* AI-assisted code: responsive layout and styling for skill cards. */
-.skill-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 32px;
-}
-
-.skill-card {
-    padding: 24px;
-    background: #ffffff;
-    border: 1px solid #e3e6f0;
-    border-radius: 14px;
-    box-shadow: 0 5px 18px rgba(36, 48, 71, 0.06);
-}
-
-.skill-card h3 {
-    margin-top: 0;
-    color: #4338ca;
-}
-
-.skill-price {
-    font-weight: 700;
 }
 
 .provider {
@@ -313,8 +267,29 @@ footer {
     border-top: 1px solid #e3e6f0;
 }
 
+#empty-message {
+    padding: 30px 0;
+    color: #68748a;
+    text-align: center;
+}
+
 @media (max-width: 650px) {
-    .skill-grid {
+    .header-content {
+        padding: 18px 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 12px 18px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .skill-grid,
+    .skills-grid {
         grid-template-columns: 1fr;
     }
 }
