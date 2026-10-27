@@ -1,33 +1,10 @@
 
+cat > script.js <<'EOF'
 const skills = [
-    {
-        title: "Python Tutoring",
-        category: "Programming",
-        price: 20,
-        description: "Get help with Python basics, coding practice, and debugging.",
-        initials: "PY"
-    },
-    {
-        title: "Guitar Lessons",
-        category: "Music",
-        price: 15,
-        description: "Learn chords, practice songs, and build your guitar skills.",
-        initials: "GU"
-    },
-    {
-        title: "Resume Review",
-        category: "Career",
-        price: 0,
-        description: "Get feedback on your resume and improve your job applications.",
-        initials: "CV"
-    },
-    {
-        title: "Web Development",
-        category: "Programming",
-        price: 25,
-        description: "Learn how to build websites with HTML, CSS, and JavaScript.",
-        initials: "WD"
-    }
+    { title: "Python Tutoring", category: "Programming", price: 20, description: "Learn Python basics, coding practice, and debugging.", initials: "PY" },
+    { title: "Guitar Lessons", category: "Music", price: 15, description: "Learn chords and practice your favorite songs.", initials: "GU" },
+    { title: "Resume Review", category: "Career", price: 0, description: "Get feedback on your resume and job applications.", initials: "CV" },
+    { title: "Web Development", category: "Programming", price: 25, description: "Learn HTML, CSS, and JavaScript.", initials: "WD" }
 ];
 
 const skillsList = document.getElementById("skills-list");
@@ -36,12 +13,10 @@ const emptyMessage = document.getElementById("empty-message");
 const filterButtons = document.querySelectorAll(".filter-button");
 
 function renderSkills(category = "All") {
-    const filteredSkills =
-        window.SkillSwapFunctions.filterSkillsByCategory(skills, category);
-
+    const filtered = window.SkillSwapFunctions.filterSkillsByCategory(skills, category);
     skillsList.replaceChildren();
 
-    filteredSkills.forEach((skill) => {
+    filtered.forEach(skill => {
         const card = document.createElement("article");
         card.className = "skill-card";
 
@@ -67,33 +42,30 @@ function renderSkills(category = "All") {
         price.className = "skill-price";
         price.textContent = skill.price === 0 ? "Free" : `$${skill.price}/hr`;
 
-        const label = document.createElement("span");
-        label.className = "skill-type";
-        label.textContent = "Skill session";
+        const type = document.createElement("span");
+        type.className = "skill-type";
+        type.textContent = "Skill session";
 
-        footer.append(price, label);
+        footer.append(price, type);
         card.append(icon, categoryLabel, title, description, footer);
         skillsList.appendChild(card);
     });
 
-    skillCount.textContent =
-        `${filteredSkills.length} ${filteredSkills.length === 1 ? "skill" : "skills"}`;
-
-    emptyMessage.hidden = filteredSkills.length !== 0;
+    skillCount.textContent = `${filtered.length} ${filtered.length === 1 ? "skill" : "skills"}`;
+    emptyMessage.hidden = filtered.length > 0;
 }
 
-filterButtons.forEach((button) => {
+filterButtons.forEach(button => {
     button.addEventListener("click", () => {
-        const selectedCategory = button.dataset.category;
-
-        filterButtons.forEach((item) => {
-            const isActive = item === button;
-            item.classList.toggle("active", isActive);
-            item.setAttribute("aria-pressed", String(isActive));
+        filterButtons.forEach(item => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            item.setAttribute("aria-pressed", String(active));
         });
 
-        renderSkills(selectedCategory);
+        renderSkills(button.dataset.category);
     });
 });
 
 renderSkills();
+EOF
