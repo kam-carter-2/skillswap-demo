@@ -1,41 +1,143 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Swap | Share What You Know</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Skill Swap connects people who want to teach, learn, and exchange skills.">
+  <title>Skill Swap | Share What You Know</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="skillswap-functions.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-    <!-- AI-assisted code: semantic homepage structure for this assignment. -->
-    <header>
-        <h1>Skill Swap</h1>
-        <p>Learn something new. Share what you know.</p>
-        <nav aria-label="Main navigation">
-            <!-- Navigation links will be implemented in Feature Branch 2. -->
-            <p>Navigation coming soon</p>
-        </nav>
-    </header>
+  <header class="site-header">
+    <a class="brand" href="#">Skill<span>Swap</span></a>
+    <nav>
+      <a href="#skill-offerings">Explore skills</a>
+      <a href="#how-it-works">How it works</a>
+      <button id="account-button" class="button button-outline">Sign in</button>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero">
-            <h2>Exchange Skills. Grow Together.</h2>
-            <p>Connect with people who can teach you something new while sharing your own talents.</p>
-            <p><a href="#skill-offerings">Explore skill offerings</a></p>
-        </section>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">LEARN • TEACH • CONNECT</p>
+        <h1>Exchange skills.<br><span>Grow together.</span></h1>
+        <p>Everyone has something to teach and something to learn. Find your next skill, share your knowledge, and connect with your community.</p>
+        <div class="hero-actions">
+          <a class="button" href="#skill-offerings">Explore skills</a>
+          <button class="button button-light" id="hero-join">Join Skill Swap</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="hero-center">S<span>↔</span>S</div>
+        <div class="float-card float-one">💻 Coding</div>
+        <div class="float-card float-two">🎸 Music</div>
+        <div class="float-card float-three">✍️ Career</div>
+      </div>
+    </section>
 
-        <section id="skill-offerings">
-            <h2>Discover Skills</h2>
-            <p>Explore opportunities to learn, teach, and connect with your community.</p>
-            <!-- Interactive skill cards will be added in Feature Branch 3. -->
-        </section>
-    </main>
+    <section class="stats">
+      <div><strong id="skill-count">0</strong><span>Skills available</span></div>
+      <div><strong>01</strong><span>Community to grow with</span></div>
+      <div><strong>∞</strong><span>Ways to learn</span></div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Skill Swap. Learn together, grow together.</p>
-    </footer>
+    <section id="how-it-works" class="how-section">
+      <p class="eyebrow">GET STARTED</p>
+      <h2>Learning works both ways.</h2>
+      <div class="steps">
+        <article><span>01</span><h3>Discover</h3><p>Explore skills shared by people in your community.</p></article>
+        <article><span>02</span><h3>Share</h3><p>Publish a skill and let others know what you can teach.</p></article>
+        <article><span>03</span><h3>Connect</h3><p>Find opportunities to learn and exchange knowledge.</p></article>
+      </div>
+    </section>
+
+    <section id="skill-offerings" class="skills-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">COMMUNITY MARKETPLACE</p><h2>Discover skills</h2>
+        <p>Find something new to learn or a skill to share.</p></div>
+        <button id="create-skill-button" class="button">+ Share a skill</button>
+      </div>
+
+      <label class="search-label" for="skill-search">Search skills</label>
+      <input id="skill-search" class="search-input" type="search" placeholder="Try Python, music, career...">
+
+      <div class="filters" aria-label="Filter skills">
+        <button class="filter-button active" data-category="All" aria-pressed="true">All</button>
+        <button class="filter-button" data-category="Programming" aria-pressed="false">Programming</button>
+        <button class="filter-button" data-category="Music" aria-pressed="false">Music</button>
+        <button class="filter-button" data-category="Career" aria-pressed="false">Career</button>
+        <button class="filter-button" data-category="Design" aria-pressed="false">Design</button>
+        <button class="filter-button" data-category="Other" aria-pressed="false">Other</button>
+      </div>
+
+      <p id="results-count" class="results-count" aria-live="polite"></p>
+      <div id="skills-list" class="skills-grid"></div>
+      <p id="empty-message" class="empty-message" hidden>No skills found. Try another search or category.</p>
+    </section>
+
+    <section id="account-section" class="account-section" hidden>
+      <div class="section-heading"><div><p class="eyebrow">YOUR SPACE</p><h2>My account</h2></div>
+      <button id="sign-out-button" class="button button-outline">Sign out</button></div>
+      <form id="profile-form" class="panel">
+        <h3>Your student profile</h3>
+        <label for="profile-name">Name</label>
+        <input id="profile-name" required maxlength="60">
+        <label for="profile-bio">About you</label>
+        <textarea id="profile-bio" rows="3" maxlength="300" placeholder="Tell the community about yourself"></textarea>
+        <label for="profile-interests">Interests</label>
+        <input id="profile-interests" placeholder="Coding, music, design...">
+        <button class="button" type="submit">Save profile</button>
+        <p id="profile-message" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#">Skill<span>Swap</span></a><p>Learn together. Grow together. © 2026 Skill Swap.</p></footer>
+
+  <dialog id="account-dialog">
+    <button class="dialog-close" data-close="account-dialog" aria-label="Close">×</button>
+    <p class="eyebrow">WELCOME TO SKILLSWAP</p>
+    <h2 id="account-title">Create your account</h2>
+    <div class="tabs">
+      <button id="register-tab" class="tab active" type="button">Register</button>
+      <button id="login-tab" class="tab" type="button">Sign in</button>
+    </div>
+    <form id="account-form">
+      <label for="account-name" id="account-name-label">Your name</label>
+      <input id="account-name" autocomplete="name" maxlength="60" required>
+      <label for="account-email">Email</label>
+      <input id="account-email" type="email" autocomplete="email" required>
+      <label for="account-password">Password</label>
+      <input id="account-password" type="password" autocomplete="new-password" minlength="6" required>
+      <button class="button full-button" type="submit" id="account-submit">Create account</button>
+      <p id="account-message" class="form-message" aria-live="polite"></p>
+    </form>
+  </dialog>
+
+  <dialog id="skill-dialog">
+    <button class="dialog-close" data-close="skill-dialog" aria-label="Close">×</button>
+    <p class="eyebrow">GIVE YOUR KNOWLEDGE A PLACE</p>
+    <h2>Share a skill</h2>
+    <form id="skill-form">
+      <label for="skill-title">Skill title</label>
+      <input id="skill-title" maxlength="70" required placeholder="Example: Beginner guitar lessons">
+      <label for="skill-category">Category</label>
+      <select id="skill-category" required>
+        <option value="">Choose a category</option>
+        <option>Programming</option><option>Music</option><option>Career</option><option>Design</option><option>Other</option>
+      </select>
+      <label for="skill-description">Description</label>
+      <textarea id="skill-description" rows="3" maxlength="300" required placeholder="What can someone learn from you?"></textarea>
+      <label for="skill-price">Price per hour ($) — enter 0 for free</label>
+      <input id="skill-price" type="number" min="0" max="500" step="1" value="0" required>
+      <button class="button full-button" type="submit">Publish skill</button>
+      <p id="skill-message" class="form-message" aria-live="polite"></p>
+    </form>
+  </dialog>
 </body>
 </html>
